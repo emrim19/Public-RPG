@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2afaf9141f6774fa32a35867c25dba, type: 3}
+  m_Name: Furnace
+  m_EditorClassIdentifier: 
+  path: Items/PlaceableObject/Furnace
+  prefab: {fileID: 3674041238686239412, guid: a6bb270002fcc654781ec6d09b2b075e, type: 3}
+  _name: Furnace
+  stackable: 0
+  amount: 1
+  description: A Stone furnace for melting ores
+  icon: {fileID: 21300000, guid: 8e4a5bc739216f94f84ceab05b0f9fcc, type: 3}
+  type: 0

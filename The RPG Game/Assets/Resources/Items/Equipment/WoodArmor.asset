@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94a98a6b045073d45a5ce38fbc8e7d69, type: 3}
+  m_Name: WoodArmor
+  m_EditorClassIdentifier: 
+  path: Items/Equipment/WoodArmor
+  prefab: {fileID: 1702557681545833205, guid: fb2ad9e0848a0b84d9fc090a55bc9b3d, type: 3}
+  _name: Wood Armor
+  stackable: 0
+  amount: 1
+  description: Plate armor made out of wood
+  icon: {fileID: 21300000, guid: 3564f3fad718417458ee1050b6243d27, type: 3}
+  type: 4
+  equipSlot: 1
+  equipTier: 1
+  currentDurability: 100
+  maxDurability: 100
+  attackMod: 1
+  defenceMod: 10
+  attackSpeedMod: 3
+  attackRange: 0
+  magicMod: -5

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b658b5c6a69adf4a9ab25d8d31f1af0, type: 3}
+  m_Name: StoneAxe
+  m_EditorClassIdentifier: 
+  path: Items/Equipment/StoneAxe
+  prefab: {fileID: 2382858272134552311, guid: aadb3586f01573c49b914afd7cb49747, type: 3}
+  _name: Stone Axe
+  stackable: 0
+  amount: 1
+  description: A normal Stone Axe
+  icon: {fileID: 21300000, guid: ef5efea644985db46bb5c85afb9df942, type: 3}
+  type: 4
+  equipSlot: 4
+  equipTier: 2
+  currentDurability: 80
+  maxDurability: 80
+  attackMod: 10
+  defenceMod: 2
+  attackSpeedMod: 3
+  attackRange: 0
+  magicMod: -2
+  weaponType: 0

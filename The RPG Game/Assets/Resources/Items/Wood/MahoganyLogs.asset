@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afaa0e06c7533054e81e83241c2b9fc0, type: 3}
+  m_Name: MahoganyLogs
+  m_EditorClassIdentifier: 
+  path: Items/Wood/MahoganyLogs
+  prefab: {fileID: 8714362933900580398, guid: b7a2fc0f3c6c5434d9cb47005cf5e660, type: 3}
+  _name: Mahogany Logs
+  stackable: 0
+  amount: 1
+  description: Some Mahogany Logs
+  icon: {fileID: 21300000, guid: f3dbe1c11bf6bad499a51b45118262a8, type: 3}
+  type: 1
+  woodType: 1

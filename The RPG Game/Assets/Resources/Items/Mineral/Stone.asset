@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ddf47632db9c949a76e0430e981f24, type: 3}
+  m_Name: Stone
+  m_EditorClassIdentifier: 
+  path: Items/Mineral/Stone
+  prefab: {fileID: 2517538060476253900, guid: e9ba44876a3f6e748876b1c40d1e720c, type: 3}
+  _name: Stone
+  stackable: 0
+  amount: 1
+  description: Some hard Stone
+  icon: {fileID: 21300000, guid: 046bd6a5fdf6bb544b1caa6f2e3ca11c, type: 3}
+  type: 2
+  mineralType: 0

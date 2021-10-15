@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b90993646921b4ba244237b1ec029a, type: 3}
+  m_Name: GoldBar
+  m_EditorClassIdentifier: 
+  path: Items/Bar/GoldBar
+  prefab: {fileID: 7406939410265549957, guid: c82155f2fd810a048a24afa87aba780b, type: 3}
+  _name: Gold Bar
+  stackable: 0
+  amount: 1
+  description: Used for crafting jewelry
+  icon: {fileID: 21300000, guid: 75d4db82cf00dc940afc50aafbc59ea9, type: 3}
+  type: 3
+  barType: 1

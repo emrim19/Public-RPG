@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5636a9775956ce143b69eae0c2164161, type: 3}
+  m_Name: FruitSalad
+  m_EditorClassIdentifier: 
+  path: Items/Food/FruitSalad
+  prefab: {fileID: 138054109676644718, guid: 621c371b99e17f64b9ca809771c005c3, type: 3}
+  _name: Fruit Salad
+  stackable: 0
+  amount: 1
+  description: A tasty combination of fruits
+  icon: {fileID: 21300000, guid: 871ea215b5a95e34083e879e02ddfdd2, type: 3}
+  type: 5
+  foodType: 4
+  foodValue: 14
+  healthValue: 15
+  staminaValue: 10

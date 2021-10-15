@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5636a9775956ce143b69eae0c2164161, type: 3}
+  m_Name: Fish
+  m_EditorClassIdentifier: 
+  path: Items/Food/Fish
+  prefab: {fileID: 6428113674283824402, guid: 62add29d5b25cc04bab2f1b4c4880e13, type: 3}
+  _name: Fish
+  stackable: 1
+  amount: 1
+  description: A tasty fish
+  icon: {fileID: 21300000, guid: 83d236c52bf0f4045aa04d5cf2c16e7d, type: 3}
+  type: 5
+  foodType: 3
+  foodValue: 7
+  healthValue: 5
+  staminaValue: 5
