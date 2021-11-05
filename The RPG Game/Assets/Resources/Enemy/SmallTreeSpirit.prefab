@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1525966075762239764}
   - component: {fileID: 3983600465866067718}
   - component: {fileID: 1516473233078583090}
-  - component: {fileID: 8016463126173745660}
   - component: {fileID: 8728325443823846575}
   m_Layer: 0
   m_Name: SmallTreeSpirit
@@ -106,17 +105,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   maxHealth: 80
+  attackRange: 1
   damage:
-    baseValue: 5
+    baseValue: 3
   defence:
     baseValue: 5
-  attackSpeed:
-    baseValue: 2
-  attackRange:
+  range:
     baseValue: 1
   magic:
     baseValue: 1
-  enemy: {fileID: 0}
+  attackSpeed:
+    baseValue: 2
 --- !u!114 &1516473233078583090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +145,6 @@ MonoBehaviour:
   lookRadius: 5
   target: {fileID: 0}
   enemyStats: {fileID: 0}
-  combat: {fileID: 0}
   animator: {fileID: 6186306221804425479}
   inCombat: 0
   isDetected: 0
@@ -156,18 +154,6 @@ MonoBehaviour:
   hasMoved: 0
   timeBeforeMoving: 0
   randomPoint: {x: 0, y: 0, z: 0}
---- !u!114 &8016463126173745660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1474254155722978231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc22e97ff06b7b24fb0553b54cfbfb3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8728325443823846575
 MonoBehaviour:
   m_ObjectHideFlags: 0

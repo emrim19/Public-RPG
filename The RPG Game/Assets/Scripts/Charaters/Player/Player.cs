@@ -20,11 +20,12 @@ public class Player : MonoBehaviour {
     public Animator animator;
     public Transform target;
     public Interactable focus;
+    public Enemy enemy;
     public PlayerStats playerStats;
-    public CharacterCombat combat;
 
     public Weapon weapon;
     public Equipment shield;
+
     public ActionAnimation actionAnimation;
 
     public bool isRunning;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour {
     public bool isPunchingAnimation;
     public bool isAttackingAnimation;
     public bool isBowAnimation;
+    public bool isSpellcatsAnimation;
 
     private int isWalkingHash;
     private int isRunningHash;
@@ -56,12 +58,13 @@ public class Player : MonoBehaviour {
     private int isPunchingHash;
     private int isAttackingHash;
     private int isBowHash;
+    private int isSpellcatsHash;
 
     public Vector3 spawnPoint;
 
     // Start is called before the first frame update
     void Start() {
-        combat = GetComponent<CharacterCombat>();
+        //combat = GetComponent<CharacterCombat>();
         cam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
         animator = GameObject.Find("PlayerAnime").GetComponent<Animator>();
@@ -73,7 +76,6 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         AnimatorManager();
-        BasicAnimations();
         LeftClick();
         RightClick();
         GoToTarget();
@@ -81,9 +83,10 @@ public class Player : MonoBehaviour {
         CheckWeaponDurability();
         CheckShieldDurability();
 
-
+        BasicAnimations();
         Combat();
         CombatAnimations();
+        SpellAnimations();
     }
 
     //INPUT
@@ -235,6 +238,7 @@ public class Player : MonoBehaviour {
     public void KillPlayer() {
         //GameManager.instance.LoadGame();
     }
+
     public void Combat() {
         if(focus != null){
             if (focus.GetComponent<Enemy>()) {
@@ -361,10 +365,6 @@ public class Player : MonoBehaviour {
                             animator.SetBool(isBowHash, false);
                         }
                     }
-                    //magic
-                    else if (CheckWeaponEquiped().weaponType == WeaponType.Staff) {
-                        //missing
-                    }
                     else {  //meele
                         if (agent.velocity.magnitude > 0.1f) {
                             animator.SetBool(isPunchingHash, false);
@@ -392,6 +392,25 @@ public class Player : MonoBehaviour {
         }
     }
 
+
+    public void SpellAnimations() {
+        if (focus != null && focus.GetComponent<Enemy>() && inCombat) {
+            if(SpellManager.instance.currentSpell != null) {
+                animator.SetBool(isPunchingHash, false);
+                animator.SetBool(isAttackingHash, false);
+                animator.SetBool(isBowHash, false);
+                animator.SetBool(isSpellcatsHash, true);
+            }
+            else {
+                animator.SetBool(isSpellcatsHash, false);
+            }
+        }
+        else {
+            animator.SetBool(isSpellcatsHash, false);
+        }
+    }
+
+
     private void AnimatorManager() {
         isIdleAnimation = animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
         isWalkingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsName("Walk");
@@ -402,6 +421,7 @@ public class Player : MonoBehaviour {
         isPunchingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Punching");
         isAttackingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
         isBowAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Bow");
+        isSpellcatsAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Fireball");
     }
 
     private void SetAnimations() {
@@ -413,6 +433,7 @@ public class Player : MonoBehaviour {
         isPunchingHash = Animator.StringToHash("Punch");
         isAttackingHash = Animator.StringToHash("WeaponAttack");
         isBowHash = Animator.StringToHash("Bow");
+        isSpellcatsHash = Animator.StringToHash("Fireball");
     }
 
 

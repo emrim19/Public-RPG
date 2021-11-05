@@ -26,7 +26,8 @@ MonoBehaviour:
   maxDurability: 50
   attackMod: 5
   defenceMod: 5
-  attackSpeedMod: 2
-  attackRange: 10
+  rangeMod: 3
   magicMod: 0
+  attackSpeedMod: 2
+  isRange: 1
   weaponType: 3

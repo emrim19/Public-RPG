@@ -11,6 +11,7 @@ public class PlayerStats : CharacterStats
     public float foodValue;
     public float maxFood;
 
+    public bool[] isRangedBools = new bool[2];
 
     #region singelton
 
@@ -37,6 +38,7 @@ public class PlayerStats : CharacterStats
         UpdateFood();
         UpdateHealth();
         UpdateAttackSpeed();
+        CheckIsRanged();
         Die();
     }
     
@@ -44,21 +46,45 @@ public class PlayerStats : CharacterStats
         if(newItem != null) {
             damage.AddModifier(newItem.attackMod);
             defence.AddModifier(newItem.defenceMod);
-            attackSpeed.AddModifier(newItem.attackSpeedMod);
-            attackRange.AddModifier(newItem.attackRange);
+            range.AddModifier(newItem.rangeMod);
             magic.AddModifier(newItem.magicMod);
-
+            attackSpeed.AddModifier(newItem.attackSpeedMod);
         }
 
         if(oldItem != null) {
             damage.RemoveModifier(oldItem.attackMod);
             defence.RemoveModifier(oldItem.defenceMod);
-            attackSpeed.RemoveModifier(oldItem.attackSpeedMod);
-            attackRange.RemoveModifier(oldItem.attackRange);
+            range.RemoveModifier(oldItem.rangeMod);
             magic.RemoveModifier(oldItem.magicMod);
+            attackSpeed.RemoveModifier(oldItem.attackSpeedMod);
         }
     }
-        
+
+    public void CheckIsRanged() {
+        Weapon weapon = EquipmentManager.instance.weapon;
+        Spell spell = SpellManager.instance.currentSpell;
+
+        if (weapon != null && weapon.isRange) {
+            isRangedBools[0] = true;
+        }
+        else if (weapon == null || !weapon.isRange) {
+            isRangedBools[0] = false;
+        }
+
+        if (spell != null && spell.isRanged) {
+            isRangedBools[1] = true;
+        }
+        else if (spell == null || !spell.isRanged) {
+            isRangedBools[1] = false;
+        }
+
+        if (isRangedBools[0] == true || isRangedBools[1] == true) {
+            isRange = true;
+        }
+        else {
+            isRange = false;
+        }
+    }
 
     //UPDATE FOR STATS
     public void UpdateStamina() {
@@ -106,6 +132,7 @@ public class PlayerStats : CharacterStats
         float attSpeed = ((float)attackSpeed.GetValue() / 10);
         player.animator.SetFloat(Animator.StringToHash("AttackSpeedModifier"), 1 + attSpeed);
     }
+
 
     //EAT FOOD
     public void EatFood(Food food) {

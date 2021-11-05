@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStats : CharacterStats {
-    public Enemy enemy;
-
+    
+    private Enemy enemy;
 
     private void Start() {
         enemy = GetComponent<Enemy>();
@@ -13,8 +13,7 @@ public class EnemyStats : CharacterStats {
     private void Update() {
         UpdateAttackSpeed();
         Die();
-    }
-
+    } 
 
     public override void Die() {
         base.Die();
@@ -23,9 +22,15 @@ public class EnemyStats : CharacterStats {
         }
     }
 
+    public override void TakeDamage(int damage) {
+        base.TakeDamage(damage);
+        enemy.lookRadius = 20;
+    }
+
     void UpdateAttackSpeed() {
         float attSpeed = ((float)attackSpeed.GetValue() / 10);
         enemy.animator.SetFloat(Animator.StringToHash("AttackSpeedModifier"), 1 + attSpeed);
     }
+
 
 }

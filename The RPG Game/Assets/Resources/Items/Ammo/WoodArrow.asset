@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ead600ac98f08d0428deb48b9336b560, type: 3}
-  m_Name: Arrow
+  m_Name: WoodArrow
   m_EditorClassIdentifier: 
-  path: Items/Ammo/Arrow
-  prefab: {fileID: 2504880303311343783, guid: a7fbf5bd804afa748af209d44c8edeb3, type: 3}
-  _name: Arrow
+  path: Items/Ammo/WoodArrow
+  prefab: {fileID: 8787426490947953066, guid: 4edd0e86510fb91499336fe8b513770e, type: 3}
+  _name: Wood Arrow
   stackable: 1
-  amount: 5
+  amount: 3
   description: An Arrow
   icon: {fileID: 21300000, guid: 7a622f8fc03b7f54bbae47f18b85c086, type: 3}
   type: 6
   ammoType: 0
-  ammoPrefab: {fileID: 6390898093135390086, guid: 0856701daa8ccb744a33cd4b8ff3fa27, type: 3}
+  ammoPrefab: {fileID: 8787426490947953066, guid: 4edd0e86510fb91499336fe8b513770e, type: 3}
   damageAmp: 5

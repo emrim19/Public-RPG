@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyAnimationEvent : MonoBehaviour
 {
     public Enemy enemy;
+    
 
-    public void Attack() {
+    public void MeeleAttack() {
         if(enemy.target != null) {
-            enemy.combat.Attack(enemy.target.GetComponent<CharacterStats>());
+            enemy.target.GetComponent<CharacterStats>().TakeDamage(enemy.enemyStats.CalcMeeleDamage());
         }
     }
+
 }

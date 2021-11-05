@@ -31,10 +31,10 @@ public class Equipment : Item
 
     public int attackMod;
     public int defenceMod;
-    public int attackSpeedMod;
-    public int attackRange;
+    public int rangeMod;
     public int magicMod;
-  
+    public int attackSpeedMod;
+    public bool isRange;
     
 
     public new void Awake() {

@@ -114,8 +114,8 @@ GameObject:
   - component: {fileID: 1985514696}
   - component: {fileID: 1985514697}
   - component: {fileID: 1985514702}
-  - component: {fileID: 1666184332}
   - component: {fileID: 1666184338}
+  - component: {fileID: 789404552}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -208,8 +208,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   target: {fileID: 0}
   focus: {fileID: 0}
+  enemy: {fileID: 0}
   playerStats: {fileID: 1666184338}
-  combat: {fileID: 0}
   weapon: {fileID: 0}
   shield: {fileID: 0}
   actionAnimation: 0
@@ -232,6 +232,7 @@ MonoBehaviour:
   isPunchingAnimation: 0
   isAttackingAnimation: 0
   isBowAnimation: 0
+  isSpellcatsAnimation: 0
   spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &1985514697
 MonoBehaviour:
@@ -272,18 +273,6 @@ MonoBehaviour:
   shieldPrefab: {fileID: 0}
   shieldTransform: {fileID: 0}
   torchTimer: 1
---- !u!114 &1666184332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5428455773675364414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc22e97ff06b7b24fb0553b54cfbfb3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1666184338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,21 +287,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 300
   maxHealth: 300
+  isRange: 0
   damage:
     baseValue: 3
   defence:
     baseValue: 3
-  attackSpeed:
-    baseValue: 1
-  attackRange:
+  range:
     baseValue: 1
   magic:
+    baseValue: 1
+  attackSpeed:
     baseValue: 1
   player: {fileID: 0}
   stamina: 150
   maxStamina: 150
   foodValue: 100
   maxFood: 100
+  isRangedBools: 0000
+--- !u!114 &789404552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5428455773675364414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee207d38bcb4abc45a01b333b1f67b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSpell: {fileID: 0}
+  player: {fileID: 0}
 --- !u!95 &5689978289950793277
 Animator:
   serializedVersion: 3
@@ -345,8 +350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1985514696}
-  weaponTransform: {fileID: 0}
-  arrow: {fileID: 11400000, guid: f41a6ae4bf01b3e4fbab34e8277875d9, type: 2}
+  currentAmmo: {fileID: 0}
+  currentSpell: {fileID: 0}
 --- !u!1001 &164990048919839916
 PrefabInstance:
   m_ObjectHideFlags: 0

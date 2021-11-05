@@ -22,6 +22,5 @@ public class Ammo : Item
 
         amount = 1;
         RemoveFromInventory();
-       
     }
 }

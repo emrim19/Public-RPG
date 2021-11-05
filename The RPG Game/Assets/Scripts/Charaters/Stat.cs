@@ -29,6 +29,17 @@ public class Stat
     }
 
 
+    public void SetModifier(int value) {
+        if(value != 0) {
+            baseValue = value;
+        }
+    }
+
+    public void ResetModifier() {
+        baseValue = 1;
+    }
+
+
 
 
 }

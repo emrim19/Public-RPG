@@ -5,36 +5,51 @@ using UnityEngine;
 public class PlayerAnimationEvent : MonoBehaviour
 {
     public Player player;
-    public Transform weaponTransform;
+    public Ammo currentAmmo;
+    public Spell currentSpell;
 
-    public Ammo arrow;
-
-    private void Start() {
-        weaponTransform = GameObject.Find("PlayerRightHand").GetComponent<Transform>();
+    public void Update() {
+        currentAmmo = EquipmentManager.instance.currentAmmo;
+        currentSpell = SpellManager.instance.currentSpell;
     }
 
 
-    public void Attack() {
-        if(player.focus != null) {
-            player.combat.Attack(player.focus.GetComponent<CharacterStats>());
-            if(player.CheckWeaponEquiped() != null) {
+    public void MeeleAttack() {
+        if (player.focus != null && player.focus.GetComponent<Enemy>()) {
+            
+            CharacterStats targetStats = player.focus.GetComponent<CharacterStats>();
+            targetStats.TakeDamage(player.playerStats.CalcMeeleDamage());
+
+            if (player.CheckWeaponEquiped() != null) {
                 player.CheckWeaponEquiped().LoseDurability(1);
             }
-        }
+        }    
     }
 
     public void ShootArrow() {
-        if (player.focus != null) {
-            if(player.CheckWeaponEquiped().weaponType == WeaponType.Bow) {
-                Instantiate(arrow.ammoPrefab, weaponTransform.position, weaponTransform.rotation);
-                player.focus.GetComponent<Enemy>().lookRadius = 20;
-                EquipmentManager.instance.RemoveAmmo();
+        if (player.focus != null && player.focus.GetComponent<Enemy>()) {
+            if(player.CheckWeaponEquiped() != null) {
+                if(player.CheckWeaponEquiped().weaponType == WeaponType.Bow) {
+                    if (currentAmmo != null) {
+                        Projectile.SpawnProjectile(currentAmmo.prefab);
+                        EquipmentManager.instance.RemoveAmmo();
+                    }
 
-                if (player.CheckWeaponEquiped() != null) {
-                    player.CheckWeaponEquiped().LoseDurability(1);
+                    if (player.CheckWeaponEquiped() != null) {
+                        player.CheckWeaponEquiped().LoseDurability(1);
+                    }
                 }
             }
         }
+    }
+
+    public void CastSpell() {
+        if (player.focus != null && player.focus.GetComponent<Enemy>()) {
+            if (SpellManager.instance.currentSpell != null) {
+                Projectile.SpawnProjectile(currentSpell.prefab);
+            }
+        }
+
     }
 
 

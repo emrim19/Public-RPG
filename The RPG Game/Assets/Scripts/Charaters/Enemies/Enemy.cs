@@ -12,8 +12,8 @@ public class Enemy : Interactable
 
     public Transform target;
     public EnemyStats enemyStats;
-    public CharacterCombat combat;
-    private NavMeshAgent agent;
+    public EnemyStatsUI enemyStatsUI;
+    public NavMeshAgent agent;
     public Animator animator;
 
     public bool inCombat;
@@ -26,13 +26,12 @@ public class Enemy : Interactable
     private int isWalkingHash;
     private int isAttackingHash;
 
-    public bool hasMoved;
     public float timeBeforeMoving;
     public Vector3 randomPoint = Vector3.zero;
 
     private void Start() {
-        combat = GetComponent<CharacterCombat>();
         enemyStats = GetComponent<EnemyStats>();
+        enemyStatsUI = GetComponent<EnemyStatsUI>();
         agent = GetComponent<NavMeshAgent>();
         target = GameManager.instance.player.transform;
 
@@ -40,24 +39,39 @@ public class Enemy : Interactable
     }
 
 
-
+    //OUT AT THE MOMENT
     protected override void InitUpdate() {
         if (isFocus) {
             float distance = Vector3.Distance(playerTransform.position, interactionTransform.position);
             if (!hasInteracted) {
-                if (distance <= player.playerStats.attackRange.GetValue()) {
-                    Interact();
-                    hasInteracted = true;
-                    player.inCombat = true;
+                if (!player.playerStats.isRange) {
+                    if (distance <= 1) {
+                        Interact();
+                        hasInteracted = true;
+                        player.inCombat = true;
+                    }
+                    else if (distance > 1) {
+                        hasInteracted = false;
+                        player.inCombat = false;
+                    }
                 }
-                else if (distance > player.playerStats.attackRange.GetValue()) {
+                else if (player.playerStats.isRange) {
+                    if (distance <= 10) {
+                        Interact();
+                        hasInteracted = true;
+                        player.inCombat = true;
+                    }
+                    else if (distance > 10) {
+                        hasInteracted = false;
+                        player.inCombat = false;
+                    }
+                }
+            }
+            if (hasInteracted) {
+                if(!player.playerStats.isRange && distance > 1){
                     hasInteracted = false;
                     player.inCombat = false;
                 }
-            }
-            else if (distance > player.playerStats.attackRange.GetValue() && !player.isBowAnimation) {
-                hasInteracted = false;
-                player.inCombat = false;
             }
         }
     }
@@ -84,6 +98,7 @@ public class Enemy : Interactable
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f); ;
     }
+
     private void MoveToTarget() {
         float distance = Vector3.Distance(target.position, transform.position);
 
@@ -105,7 +120,6 @@ public class Enemy : Interactable
         else if(distance > lookRadius) {
             inCombat = false;
             isDetected = false;
-
         }
     }
 

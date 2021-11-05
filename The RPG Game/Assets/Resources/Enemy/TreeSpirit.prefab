@@ -175,7 +175,6 @@ GameObject:
   - component: {fileID: 4681349651947166184}
   - component: {fileID: 7102945444722409466}
   - component: {fileID: 4670713187650637774}
-  - component: {fileID: 4222720612842729728}
   - component: {fileID: 3241203066366637139}
   m_Layer: 0
   m_Name: TreeSpirit
@@ -267,17 +266,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 150
   maxHealth: 150
+  isRange: 0
   damage:
-    baseValue: 10
+    baseValue: 5
   defence:
     baseValue: 8
-  attackSpeed:
-    baseValue: 1
-  attackRange:
+  range:
     baseValue: 1
   magic:
     baseValue: 1
-  enemy: {fileID: 0}
+  attackSpeed:
+    baseValue: 1
 --- !u!114 &4670713187650637774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,8 +305,9 @@ MonoBehaviour:
   enemyName: Tree Spirit
   lookRadius: 10
   target: {fileID: 0}
-  enemyStats: {fileID: 0}
-  combat: {fileID: 0}
+  enemyStats: {fileID: 7102945444722409466}
+  enemyStatsUI: {fileID: 3241203066366637139}
+  agent: {fileID: 5562449887338617644}
   animator: {fileID: 1256088059}
   inCombat: 0
   isDetected: 0
@@ -317,18 +317,6 @@ MonoBehaviour:
   hasMoved: 0
   timeBeforeMoving: 0
   randomPoint: {x: 0, y: 0, z: 0}
---- !u!114 &4222720612842729728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4733202861342425931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc22e97ff06b7b24fb0553b54cfbfb3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3241203066366637139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 4670713187650637774}
   healthSlider: {fileID: 4709456222650919981}
+  stats: {fileID: 0}
 --- !u!1 &5923020169946936470
 GameObject:
   m_ObjectHideFlags: 0

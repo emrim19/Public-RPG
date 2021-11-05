@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     private void OnApplicationQuit() {
-        SaveGame();
+        //SaveGame();
     }
 
     private void OnLevelWasLoaded(int level) {

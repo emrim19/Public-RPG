@@ -54,6 +54,7 @@ public class Interactable : MonoBehaviour
             DoingAction();
         }
     }
+
     protected virtual void Interact() {
         //different for all interactables
     }
