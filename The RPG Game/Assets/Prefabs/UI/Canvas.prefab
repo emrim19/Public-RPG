@@ -959,7 +959,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 138, y: 100}
+  m_CellSize: {x: 95, y: 95}
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -3612,6 +3612,14 @@ PrefabInstance:
       propertyPath: spell
       value: 
       objectReference: {fileID: 11400000, guid: 24f8732621e4fd247b96cbc427f9d34d, type: 2}
+    - target: {fileID: 4605418899271630136, guid: ed24b49b52a912c48b2ccf81d236a55e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605418899271630136, guid: ed24b49b52a912c48b2ccf81d236a55e, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6337559266820308446, guid: ed24b49b52a912c48b2ccf81d236a55e, type: 3}
       propertyPath: m_Name
       value: AbilityButton
@@ -4358,6 +4366,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2499585327585259144}
     m_Modifications:
+    - target: {fileID: 2164163148682574540, guid: ed24b49b52a912c48b2ccf81d236a55e, type: 3}
+      propertyPath: spell
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bb36dafbfe53fe48a450e8f093f9f97, type: 2}
     - target: {fileID: 6337559266820308446, guid: ed24b49b52a912c48b2ccf81d236a55e, type: 3}
       propertyPath: m_Name
       value: AbilityButton (1)

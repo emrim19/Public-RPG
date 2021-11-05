@@ -64,7 +64,6 @@ public class Player : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        //combat = GetComponent<CharacterCombat>();
         cam = Camera.main;
         agent = GetComponent<NavMeshAgent>();
         animator = GameObject.Find("PlayerAnime").GetComponent<Animator>();
@@ -421,7 +420,7 @@ public class Player : MonoBehaviour {
         isPunchingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Punching");
         isAttackingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
         isBowAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Bow");
-        isSpellcatsAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Fireball");
+        isSpellcatsAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast1");
     }
 
     private void SetAnimations() {
@@ -433,7 +432,7 @@ public class Player : MonoBehaviour {
         isPunchingHash = Animator.StringToHash("Punch");
         isAttackingHash = Animator.StringToHash("WeaponAttack");
         isBowHash = Animator.StringToHash("Bow");
-        isSpellcatsHash = Animator.StringToHash("Fireball");
+        isSpellcatsHash = Animator.StringToHash("Spellcast1");
     }
 
 

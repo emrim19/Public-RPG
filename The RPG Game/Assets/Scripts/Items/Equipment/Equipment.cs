@@ -34,7 +34,7 @@ public class Equipment : Item
     public int rangeMod;
     public int magicMod;
     public int attackSpeedMod;
-    public bool isRange;
+    
     
 
     public new void Awake() {

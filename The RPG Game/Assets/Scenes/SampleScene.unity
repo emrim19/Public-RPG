@@ -2223,14 +2223,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 333362139, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
-      propertyPath: m_CellSize.x
-      value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 333362139, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
-      propertyPath: m_CellSize.y
-      value: 95
-      objectReference: {fileID: 0}
     - target: {fileID: 80770045259287136, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -3141,14 +3133,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401419873153058540, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2413425118852883418, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2413425118852883418, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
-      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2413425118852883418, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
@@ -3163,14 +3147,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2413425118852883418, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2413425118852883418, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
-      propertyPath: m_Maskable
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2521526345950218075, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -3227,10 +3203,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2864151134865347022, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
-      propertyPath: spell
-      value: 
-      objectReference: {fileID: 11400000, guid: 7bb36dafbfe53fe48a450e8f093f9f97, type: 2}
     - target: {fileID: 2864242434368399782, guid: e5719503f88a9a64792f7c9f15d17752, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Waterstrike
   m_EditorClassIdentifier: 
   prefab: {fileID: 2990763955075176250, guid: 52cab9649dfb52143be44563591e02e3, type: 3}
-  icon: {fileID: 21300000, guid: 2356f48158cca0645ad18916d7d37719, type: 3}
+  icon: {fileID: 21300000, guid: 2da3767ec5e75414e99a8588d42d85c4, type: 3}
   _name: Waterstrike
   description: A waterstrike
   damageAmp: 30
-  manaCost: 10
+  manaCost: 35
+  cooldown: 0
   isRanged: 1

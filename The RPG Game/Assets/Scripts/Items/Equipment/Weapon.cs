@@ -17,7 +17,7 @@ public enum WeaponType {
 public class Weapon : Equipment {
 
     public WeaponType weaponType;
-
+    public bool isRange;
 }
 
 

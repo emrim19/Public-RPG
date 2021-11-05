@@ -30,7 +30,6 @@ public class RangeProjectile : MonoBehaviour
         }
     }
 
-
     public void FlyTotarget() {
         if (targetfocus != null) {
             float step = 15 * Time.deltaTime;

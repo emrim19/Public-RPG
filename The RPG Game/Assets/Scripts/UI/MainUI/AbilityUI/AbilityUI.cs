@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public class AbilityUI : UI
 {
-    public Transform parentTransform;
-    public AbilityButton[] buttons;
 
+
+    public Transform parentTransform;
+    public AbilityButton[] abilityButtons;
 
 
     private void Start() {
-        buttons = parentTransform.GetComponentsInChildren<AbilityButton>();
+        abilityButtons = parentTransform.GetComponentsInChildren<AbilityButton>();
     }
 
-    
+    public void SetChosenSpell() {
+        for(int i = 0; i < abilityButtons.Length; i++) {
+            abilityButtons[i].SetIsChosen();
+        }
+    }
 
 }

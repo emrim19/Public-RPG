@@ -304,6 +304,8 @@ MonoBehaviour:
   actionAnimation: 0
   enemyName: Tree Spirit
   lookRadius: 10
+  defaultLookRadius: 10
+  combatlookRadius: 20
   target: {fileID: 0}
   enemyStats: {fileID: 7102945444722409466}
   enemyStatsUI: {fileID: 3241203066366637139}
@@ -314,7 +316,6 @@ MonoBehaviour:
   speed: 0
   isWalkingAnimation: 0
   isAttackingAnimation: 0
-  hasMoved: 0
   timeBeforeMoving: 0
   randomPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &3241203066366637139

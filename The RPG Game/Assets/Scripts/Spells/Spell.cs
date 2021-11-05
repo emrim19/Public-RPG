@@ -12,6 +12,7 @@ public class Spell : ScriptableObject
     public string description;
     public int damageAmp;
     public int manaCost;
+    public float cooldown;
     public bool isRanged;
     
 

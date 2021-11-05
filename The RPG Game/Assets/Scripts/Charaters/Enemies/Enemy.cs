@@ -8,7 +8,9 @@ using UnityEngine.EventSystems;
 public class Enemy : Interactable
 {
     public string enemyName;
-    public float lookRadius = 10f;
+    public float lookRadius;
+    public float defaultLookRadius;
+    public float combatlookRadius;
 
     public Transform target;
     public EnemyStats enemyStats;
@@ -120,6 +122,7 @@ public class Enemy : Interactable
         else if(distance > lookRadius) {
             inCombat = false;
             isDetected = false;
+            lookRadius = defaultLookRadius;
         }
     }
 

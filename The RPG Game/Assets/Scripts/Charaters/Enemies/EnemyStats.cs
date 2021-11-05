@@ -24,7 +24,7 @@ public class EnemyStats : CharacterStats {
 
     public override void TakeDamage(int damage) {
         base.TakeDamage(damage);
-        enemy.lookRadius = 20;
+        enemy.lookRadius = enemy.combatlookRadius;
     }
 
     void UpdateAttackSpeed() {

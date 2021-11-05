@@ -443,7 +443,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Fireball
+    m_ConditionEvent: Spellcast1
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8840893908891513936}
@@ -628,7 +628,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Fireball
+  - m_Name: Spellcast1
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -704,7 +704,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fireball
+  m_Name: Spellcast1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -719,7 +719,7 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 7f1ff4f0f50666a4fb1d76ac7714dc12, type: 2}
-  m_Tag: Fireball
+  m_Tag: Spellcast1
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
@@ -880,10 +880,10 @@ AnimatorStateMachine:
     m_Position: {x: 880, y: -90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8671192578827163969}
-    m_Position: {x: 360, y: -230, z: 0}
+    m_Position: {x: 360, y: -240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 718204443677424536}
-    m_Position: {x: -300, y: 0, z: 0}
+    m_Position: {x: -280, y: 0, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -903,7 +903,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Fireball
+    m_ConditionEvent: Spellcast1
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 718204443677424536}

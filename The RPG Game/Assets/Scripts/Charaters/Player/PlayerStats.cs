@@ -106,6 +106,12 @@ public class PlayerStats : CharacterStats
             }
         }
     }
+
+    public void LoseStamina(float staminaLoss) {
+        stamina -= staminaLoss;
+    }
+
+
     public void UpdateFood() {
         if(foodValue > 0) {
             foodValue -= Time.deltaTime / 10;

@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   maxHealth: 80
-  attackRange: 1
+  isRange: 0
   damage:
     baseValue: 3
   defence:
@@ -143,15 +143,18 @@ MonoBehaviour:
   actionAnimation: 0
   enemyName: Baby Tree Spirit
   lookRadius: 5
+  defaultLookRadius: 5
+  combatlookRadius: 15
   target: {fileID: 0}
   enemyStats: {fileID: 0}
+  enemyStatsUI: {fileID: 0}
+  agent: {fileID: 0}
   animator: {fileID: 6186306221804425479}
   inCombat: 0
   isDetected: 0
   speed: 0
   isWalkingAnimation: 0
   isAttackingAnimation: 0
-  hasMoved: 0
   timeBeforeMoving: 0
   randomPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &8728325443823846575

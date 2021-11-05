@@ -17,5 +17,6 @@ MonoBehaviour:
   _name: Fireball
   description: A Fireball spell
   damageAmp: 10
-  manaCost: 10
+  manaCost: 20
+  cooldown: 0
   isRanged: 1
