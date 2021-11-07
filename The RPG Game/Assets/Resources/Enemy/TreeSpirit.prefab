@@ -264,6 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3acd022b52a4e43a16230696f5ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  defaultSpeed: 2
   health: 150
   maxHealth: 150
   isRange: 0
@@ -313,7 +315,6 @@ MonoBehaviour:
   animator: {fileID: 1256088059}
   inCombat: 0
   isDetected: 0
-  speed: 0
   isWalkingAnimation: 0
   isAttackingAnimation: 0
   timeBeforeMoving: 0

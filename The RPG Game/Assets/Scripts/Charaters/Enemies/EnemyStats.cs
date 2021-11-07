@@ -8,10 +8,14 @@ public class EnemyStats : CharacterStats {
 
     private void Start() {
         enemy = GetComponent<Enemy>();
+
+        InvokeRepeating("DoDamageOverTime", 0, 0.5f);
     }
 
     private void Update() {
-        UpdateAttackSpeed();
+        UpdateAttackSpeed(enemy.animator);
+        UpdateMovementSpeed(enemy.animator);
+        UpdateEffects();
         Die();
     } 
 
@@ -25,11 +29,6 @@ public class EnemyStats : CharacterStats {
     public override void TakeDamage(int damage) {
         base.TakeDamage(damage);
         enemy.lookRadius = enemy.combatlookRadius;
-    }
-
-    void UpdateAttackSpeed() {
-        float attSpeed = ((float)attackSpeed.GetValue() / 10);
-        enemy.animator.SetFloat(Animator.StringToHash("AttackSpeedModifier"), 1 + attSpeed);
     }
 
 

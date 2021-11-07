@@ -39,7 +39,14 @@ public class SpellProjectile : MonoBehaviour
                 Destroy(gameObject);
                 CharacterStats stats = targetfocus.GetComponent<CharacterStats>();
                 stats.TakeDamage(player.playerStats.CalcSpellDamage(spell));
+                if(spell.effect != null) {
+                    stats.AddEffect(spell.effect);
+                }
+
             }
+        }
+        else if(targetfocus == null) {
+            Destroy(gameObject);
         }
     }
 }

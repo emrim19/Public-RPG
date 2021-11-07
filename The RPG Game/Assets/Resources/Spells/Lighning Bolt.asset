@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9693f50620ab1a740b84fe00d64ec519, type: 3}
-  m_Name: Fireball
+  m_Name: Lighning Bolt
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3545983874610700349, guid: f4443160ea21a834eba010a6ec74cb36, type: 3}
-  icon: {fileID: 21300000, guid: bbedd18fa2413cd4c84b02d62c38a9b7, type: 3}
-  effect: {fileID: 11400000, guid: d36071bf4de399f43a68365c6c71f7ee, type: 2}
-  _name: Fireball
-  description: A Fireball spell
-  damageAmp: 15
-  manaCost: 20
+  prefab: {fileID: 7558423188230926501, guid: 1676de004f201d54b8a5748ff0773686, type: 3}
+  icon: {fileID: 21300000, guid: aaa785d963821cb4e8bc6bc7b4f0fe1f, type: 3}
+  _name: Lightning Bolt
+  description: Lighning go Brrr
+  damageAmp: 10
+  manaCost: 10
   cooldown: 0
-  spellAnimationNumber: 1
+  spellAnimationNumber: 4
   isRanged: 1

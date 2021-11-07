@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     public Interactable focus;
     public Enemy enemy;
     public PlayerStats playerStats;
+    private AbilityUI abilityUI;
 
     public Weapon weapon;
     public Equipment shield;
@@ -29,7 +30,6 @@ public class Player : MonoBehaviour {
     public ActionAnimation actionAnimation;
 
     public bool isRunning;
-    public float speed;
 
     public bool isConstructing;
     public bool inCombat;
@@ -48,7 +48,12 @@ public class Player : MonoBehaviour {
     public bool isPunchingAnimation;
     public bool isAttackingAnimation;
     public bool isBowAnimation;
-    public bool isSpellcatsAnimation;
+    public bool isSpellcats1Animation;
+    public bool isSpellcats2Animation;
+    public bool isSpellcats3Animation;
+    public bool isSpellcats4Animation;
+    public bool isSpellcats5Animation;
+    public bool isSpellcats6Animation;
 
     private int isWalkingHash;
     private int isRunningHash;
@@ -58,7 +63,12 @@ public class Player : MonoBehaviour {
     private int isPunchingHash;
     private int isAttackingHash;
     private int isBowHash;
-    private int isSpellcatsHash;
+    private int isSpellcats1Hash;
+    private int isSpellcats2Hash;
+    private int isSpellcats3Hash;
+    private int isSpellcats4Hash;
+    private int isSpellcats5Hash;
+    private int isSpellcats6Hash;
 
     public Vector3 spawnPoint;
 
@@ -70,6 +80,9 @@ public class Player : MonoBehaviour {
         playerStats = GetComponent<PlayerStats>();
 
         SetAnimations();
+        playerStats.SetSpeed(playerStats.defaultSpeed);
+        abilityUI = GameObject.Find("Abilities").GetComponent<AbilityUI>();
+
     }
 
     // Update is called once per frame
@@ -205,7 +218,7 @@ public class Player : MonoBehaviour {
             return null;
         }
     }
-    public void CheckWeaponDurability() {
+    private void CheckWeaponDurability() {
         if (weapon != null) {
             if (weapon.currentDurability <= 0) {
                 weapon = null;
@@ -224,7 +237,7 @@ public class Player : MonoBehaviour {
             return null;
         }
     }
-    public void CheckShieldDurability() {
+    private void CheckShieldDurability() {
         if (shield != null) {
             if (shield.currentDurability <= 0) {
                 shield = null;
@@ -394,18 +407,109 @@ public class Player : MonoBehaviour {
 
     public void SpellAnimations() {
         if (focus != null && focus.GetComponent<Enemy>() && inCombat) {
-            if(SpellManager.instance.currentSpell != null) {
-                animator.SetBool(isPunchingHash, false);
-                animator.SetBool(isAttackingHash, false);
-                animator.SetBool(isBowHash, false);
-                animator.SetBool(isSpellcatsHash, true);
+            if (SpellManager.instance.currentSpell != null) {
+                Spell theSpell = SpellManager.instance.currentSpell;
+                if(playerStats.stamina >= theSpell.manaCost) {
+                    if (theSpell.spellAnimationNumber == 1) {
+                        animator.SetBool(isPunchingHash, false);
+                        animator.SetBool(isAttackingHash, false);
+                        animator.SetBool(isBowHash, false);
+
+                        animator.SetBool(isSpellcats1Hash, true);
+                        animator.SetBool(isSpellcats2Hash, false);
+                        animator.SetBool(isSpellcats3Hash, false);
+                        animator.SetBool(isSpellcats4Hash, false);
+                        animator.SetBool(isSpellcats5Hash, false);
+                        animator.SetBool(isSpellcats6Hash, false);
+                    }
+                    if (theSpell.spellAnimationNumber == 2) {
+                        animator.SetBool(isPunchingHash, false);
+                        animator.SetBool(isAttackingHash, false);
+                        animator.SetBool(isBowHash, false);
+
+                        animator.SetBool(isSpellcats1Hash, false);
+                        animator.SetBool(isSpellcats2Hash, true);
+                        animator.SetBool(isSpellcats3Hash, false);
+                        animator.SetBool(isSpellcats4Hash, false);
+                        animator.SetBool(isSpellcats5Hash, false);
+                        animator.SetBool(isSpellcats6Hash, false);
+                    }
+                    if (theSpell.spellAnimationNumber == 3) {
+                        animator.SetBool(isPunchingHash, false);
+                        animator.SetBool(isAttackingHash, false);
+                        animator.SetBool(isBowHash, false);
+
+                        animator.SetBool(isSpellcats1Hash, false);
+                        animator.SetBool(isSpellcats2Hash, false);
+                        animator.SetBool(isSpellcats3Hash, true);
+                        animator.SetBool(isSpellcats4Hash, false);
+                        animator.SetBool(isSpellcats5Hash, false);
+                        animator.SetBool(isSpellcats6Hash, false);
+                    }
+                    if (theSpell.spellAnimationNumber == 4) {
+                        animator.SetBool(isPunchingHash, false);
+                        animator.SetBool(isAttackingHash, false);
+                        animator.SetBool(isBowHash, false);
+
+                        animator.SetBool(isSpellcats1Hash, false);
+                        animator.SetBool(isSpellcats2Hash, false);
+                        animator.SetBool(isSpellcats3Hash, false);
+                        animator.SetBool(isSpellcats4Hash, true);
+                        animator.SetBool(isSpellcats5Hash, false);
+                        animator.SetBool(isSpellcats6Hash, false);
+                    }
+                    if (theSpell.spellAnimationNumber == 5) {
+                        animator.SetBool(isPunchingHash, false);
+                        animator.SetBool(isAttackingHash, false);
+                        animator.SetBool(isBowHash, false);
+
+                        animator.SetBool(isSpellcats1Hash, false);
+                        animator.SetBool(isSpellcats2Hash, false);
+                        animator.SetBool(isSpellcats3Hash, false);
+                        animator.SetBool(isSpellcats4Hash, false);
+                        animator.SetBool(isSpellcats5Hash, true);
+                        animator.SetBool(isSpellcats6Hash, false);
+                    }
+                    if (theSpell.spellAnimationNumber == 6) {
+                        animator.SetBool(isPunchingHash, false);
+                        animator.SetBool(isAttackingHash, false);
+                        animator.SetBool(isBowHash, false);
+
+                        animator.SetBool(isSpellcats1Hash, false);
+                        animator.SetBool(isSpellcats2Hash, false);
+                        animator.SetBool(isSpellcats3Hash, false);
+                        animator.SetBool(isSpellcats4Hash, false);
+                        animator.SetBool(isSpellcats5Hash, false);
+                        animator.SetBool(isSpellcats6Hash, true);
+                    }
+                }
+                else {
+                    SpellManager.instance.currentSpell = null;
+                    abilityUI.SetChosenSpell();
+                    animator.SetBool(isSpellcats1Hash, false);
+                    animator.SetBool(isSpellcats2Hash, false);
+                    animator.SetBool(isSpellcats3Hash, false);
+                    animator.SetBool(isSpellcats4Hash, false);
+                    animator.SetBool(isSpellcats5Hash, false);
+                    animator.SetBool(isSpellcats6Hash, false);
+                }
             }
             else {
-                animator.SetBool(isSpellcatsHash, false);
+                animator.SetBool(isSpellcats1Hash, false);
+                animator.SetBool(isSpellcats2Hash, false);
+                animator.SetBool(isSpellcats3Hash, false);
+                animator.SetBool(isSpellcats4Hash, false);
+                animator.SetBool(isSpellcats5Hash, false);
+                animator.SetBool(isSpellcats6Hash, false);
             }
         }
         else {
-            animator.SetBool(isSpellcatsHash, false);
+            animator.SetBool(isSpellcats1Hash, false);
+            animator.SetBool(isSpellcats2Hash, false);
+            animator.SetBool(isSpellcats3Hash, false);
+            animator.SetBool(isSpellcats4Hash, false);
+            animator.SetBool(isSpellcats5Hash, false);
+            animator.SetBool(isSpellcats6Hash, false);
         }
     }
 
@@ -420,7 +524,12 @@ public class Player : MonoBehaviour {
         isPunchingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Punching");
         isAttackingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
         isBowAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Bow");
-        isSpellcatsAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast1");
+        isSpellcats1Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast1");
+        isSpellcats2Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast2");
+        isSpellcats3Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast3");
+        isSpellcats4Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast4");
+        isSpellcats5Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast5");
+        isSpellcats6Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast6");
     }
 
     private void SetAnimations() {
@@ -432,13 +541,17 @@ public class Player : MonoBehaviour {
         isPunchingHash = Animator.StringToHash("Punch");
         isAttackingHash = Animator.StringToHash("WeaponAttack");
         isBowHash = Animator.StringToHash("Bow");
-        isSpellcatsHash = Animator.StringToHash("Spellcast1");
+        isSpellcats1Hash = Animator.StringToHash("Spellcast1");
+        isSpellcats2Hash = Animator.StringToHash("Spellcast2");
+        isSpellcats3Hash = Animator.StringToHash("Spellcast3");
+        isSpellcats4Hash = Animator.StringToHash("Spellcast4");
+        isSpellcats5Hash = Animator.StringToHash("Spellcast5");
+        isSpellcats6Hash = Animator.StringToHash("Spellcast6");
     }
 
 
     //getters and setters
     public void SetMovementSpeed(float speed) {
-        this.speed = speed;
         agent.speed = speed;
     }
 

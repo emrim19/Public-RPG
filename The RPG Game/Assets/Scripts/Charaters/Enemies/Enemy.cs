@@ -20,13 +20,14 @@ public class Enemy : Interactable
 
     public bool inCombat;
     public bool isDetected;
-    public float speed;
 
     public bool isWalkingAnimation;
     public bool isAttackingAnimation;
+    public bool isStunnedAnimation;
 
     private int isWalkingHash;
     private int isAttackingHash;
+    private int isStunnedHash;
 
     public float timeBeforeMoving;
     public Vector3 randomPoint = Vector3.zero;
@@ -38,6 +39,7 @@ public class Enemy : Interactable
         target = GameManager.instance.player.transform;
 
         SetAnimations();
+        enemyStats.SetSpeed(enemyStats.defaultSpeed);
     }
 
 
@@ -85,6 +87,7 @@ public class Enemy : Interactable
         Animation();
         MoveRandomlyAround();
         InitUpdate();
+        
     }
 
     protected override void Interact() {
@@ -102,27 +105,32 @@ public class Enemy : Interactable
     }
 
     private void MoveToTarget() {
-        float distance = Vector3.Distance(target.position, transform.position);
+        if (!enemyStats.isStunned) {
+            float distance = Vector3.Distance(target.position, transform.position);
 
-        if (distance <= lookRadius) {
-            isDetected = true;
-            agent.SetDestination(target.position);
+            if (distance <= lookRadius) {
+                isDetected = true;
+                agent.SetDestination(target.position);
 
-            if (distance <= agent.stoppingDistance) {
-                CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                if(targetStats != null) {
-                    inCombat = true;
+                if (distance <= agent.stoppingDistance) {
+                    CharacterStats targetStats = target.GetComponent<CharacterStats>();
+                    if (targetStats != null) {
+                        inCombat = true;
+                    }
+                    FaceTarget();
                 }
-                FaceTarget();
+                else {
+                    inCombat = false;
+                }
             }
-            else {
+            else if (distance > lookRadius) {
                 inCombat = false;
+                isDetected = false;
+                lookRadius = defaultLookRadius;
             }
         }
-        else if(distance > lookRadius) {
-            inCombat = false;
-            isDetected = false;
-            lookRadius = defaultLookRadius;
+        else if (enemyStats.isStunned) {
+            agent.SetDestination(transform.position);
         }
     }
 
@@ -154,29 +162,43 @@ public class Enemy : Interactable
     //ANIMATIONS
     public void Animation() {
         //movement animations
-        if (agent.velocity.magnitude >= 0.1) {
-                animator.SetBool(isWalkingHash, true);
-                SetMovementSpeed(2);
-        }
-        else if (agent.velocity.magnitude == 0f) {
-            animator.SetBool(isWalkingHash, false);
-        }
+        if (!enemyStats.isStunned) {
+            animator.SetBool(isStunnedHash, false);
 
-        if (inCombat) {
-            animator.SetBool(isAttackingHash, true);
-            animator.SetBool(isWalkingHash, false);
+            if (agent.velocity.magnitude >= 0.1) {
+                animator.SetBool(isWalkingHash, true);
+                SetMovementSpeed(enemyStats.speed);
+            }
+            else if (agent.velocity.magnitude == 0f) {
+                animator.SetBool(isWalkingHash, false);
+            }
+
+            if (inCombat) {
+                animator.SetBool(isAttackingHash, true);
+                animator.SetBool(isWalkingHash, false);
+            }
+            else {
+                animator.SetBool(isAttackingHash, false);
+            }
         }
-        else {
+        
+        else if (enemyStats.isStunned) {
+            animator.SetBool(isStunnedHash, true);
+            animator.SetBool(isWalkingHash, false);
             animator.SetBool(isAttackingHash, false);
         }
+
+        
     }
     private void AnimatorManager() {
         isWalkingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Walk");
         isAttackingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
+        isStunnedAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Stunned");
     }
     private void SetAnimations() {
         isWalkingHash = Animator.StringToHash("Walking");
         isAttackingHash = Animator.StringToHash("Attacking");
+        isStunnedHash = Animator.StringToHash("Stunned");
     }
 
 
@@ -189,10 +211,8 @@ public class Enemy : Interactable
 
     //Setters
     public void SetMovementSpeed(float speed) {
-        this.speed = speed;
         agent.speed = speed;
     }
-
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);

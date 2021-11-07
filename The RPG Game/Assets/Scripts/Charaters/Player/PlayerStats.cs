@@ -31,14 +31,17 @@ public class PlayerStats : CharacterStats
     {
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
         player = GetComponent<Player>();
+
+        InvokeRepeating("DoDamageOverTime", 0, 0.5f);
     }
 
     public void Update() {
         UpdateStamina();
         UpdateFood();
         UpdateHealth();
-        UpdateAttackSpeed();
+        UpdateAttackSpeed(player.animator);
         CheckIsRanged();
+        UpdateEffects();
         Die();
     }
     
@@ -134,10 +137,6 @@ public class PlayerStats : CharacterStats
         }
     }
 
-    void UpdateAttackSpeed() {
-        float attSpeed = ((float)attackSpeed.GetValue() / 10);
-        player.animator.SetFloat(Animator.StringToHash("AttackSpeedModifier"), 1 + attSpeed);
-    }
 
 
     //EAT FOOD

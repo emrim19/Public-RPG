@@ -8,11 +8,6 @@ public class PlayerAnimationEvent : MonoBehaviour
     public Ammo currentAmmo;
     public Spell currentSpell;
 
-    private AbilityUI abilityUI;
-
-    private void Start() {
-        abilityUI = GameObject.Find("Abilities").GetComponent<AbilityUI>();
-    }
 
     public void Update() {
         currentAmmo = EquipmentManager.instance.currentAmmo;
@@ -51,18 +46,18 @@ public class PlayerAnimationEvent : MonoBehaviour
 
     public void Spellcast1() {
         if (player.focus != null && player.focus.GetComponent<Enemy>()) {
-            if(currentSpell.manaCost <= player.playerStats.stamina) {
-                if (SpellManager.instance.currentSpell != null) {
-                    Projectile.SpawnProjectile(currentSpell.prefab);
-                    player.playerStats.LoseStamina(currentSpell.manaCost);
+            if(currentSpell != null) {
+                if (currentSpell.manaCost <= player.playerStats.stamina) {
+                    if (SpellManager.instance.currentSpell != null) {
+                        Projectile.SpawnProjectile(currentSpell.prefab);
+                        player.playerStats.LoseStamina(currentSpell.manaCost);
+                    }
                 }
-            }
-            else if(currentSpell.manaCost > player.playerStats.stamina) {
-                SpellManager.instance.currentSpell = null;
-                abilityUI.SetChosenSpell();
             }
         }
     }
+
+    
 
 
 
