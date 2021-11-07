@@ -15,3 +15,4 @@ MonoBehaviour:
   effectType: 0
   effectStrenght: 1
   duration: 5
+  particleEffect: {fileID: 5313224567624875698, guid: 6fb11a8c9a4b671458f7cd4995f19336, type: 3}

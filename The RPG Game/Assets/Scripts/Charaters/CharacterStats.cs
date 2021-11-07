@@ -16,6 +16,7 @@ public abstract class CharacterStats : MonoBehaviour
     public Stat attackSpeed;
 
     public List<Effect> effects = new List<Effect>();
+    public List<GameObject> particleEffects = new List<GameObject>();
 
     public bool isSlowed;
     public float slowDuration;
@@ -81,16 +82,34 @@ public abstract class CharacterStats : MonoBehaviour
     public void AddEffect(Effect effect) {
         if(effects.Count == 0) {
             effects.Add(effect);
+            if (effect.particleEffect != null) {
+                GameObject part = Instantiate(effect.particleEffect, transform.position + new Vector3(0, 1f, 0), transform.rotation, transform);
+                part.name = part.name.Replace("(Clone)", string.Empty);
+                particleEffects.Add(effect.particleEffect);
+            }
         }
         else if(effects.Count > 0) {
             if (!effects.Contains(effect)) {
                 effects.Add(effect);
+                if(effect.particleEffect != null) {
+                    GameObject part = Instantiate(effect.particleEffect, transform.position + new Vector3(0, 1f, 0), transform.rotation, transform);
+                    part.name = part.name.Replace("(Clone)", string.Empty);
+                    particleEffects.Add(effect.particleEffect);
+                }
             }
         }
     }
 
     public void RemoveEffect(Effect effect) {
         effects.Remove(effect);
+        if(effect.particleEffect != null) {
+            GameObject part = GameObject.Find(effect.particleEffect.name);
+            if(part != null) {
+                Destroy(part);
+            }
+            particleEffects.Remove(effect.particleEffect);
+            
+        }
     }
 
     protected void UpdateEffects() {
@@ -144,6 +163,8 @@ public abstract class CharacterStats : MonoBehaviour
             }
         }
     }
+
+
 
     public void Slow(Effect effect) {
         speed -= effect.effectStrenght;

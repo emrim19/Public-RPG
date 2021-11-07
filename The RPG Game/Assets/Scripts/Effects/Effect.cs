@@ -17,5 +17,6 @@ public class Effect : ScriptableObject
     public EffectType effectType;
     public float effectStrenght;
     public float duration;
+    public GameObject particleEffect;
 
 }
