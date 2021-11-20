@@ -17,7 +17,7 @@ MonoBehaviour:
   effect: {fileID: 11400000, guid: 1161d9000cbed8a46817ac103970f249, type: 2}
   _name: Earth Strike
   description: Rock go brrr
-  damageAmp: 20
+  damageAmp: 14
   manaCost: 20
   cooldown: 0
   spellAnimationNumber: 2

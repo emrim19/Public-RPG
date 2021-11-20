@@ -40,6 +40,9 @@ public class RangeProjectile : MonoBehaviour
                 Destroy(gameObject);
                 CharacterStats stats = targetfocus.GetComponent<CharacterStats>();
                 stats.TakeDamage(player.playerStats.CalcRangeDamage(ammo));
+                if (ammo.effect != null) {
+                    stats.AddEffect(ammo.effect);
+                }
             }
         }
     }

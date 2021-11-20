@@ -524,12 +524,12 @@ public class Player : MonoBehaviour {
         isPunchingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Punching");
         isAttackingAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
         isBowAnimation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Bow");
-        isSpellcats1Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast1");
-        isSpellcats2Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast2");
-        isSpellcats3Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast3");
-        isSpellcats4Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast4");
-        isSpellcats5Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast5");
-        isSpellcats6Animation = animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast6");
+        isSpellcats1Animation = animator.GetCurrentAnimatorStateInfo(0).IsName("Spellcast1");
+        isSpellcats2Animation = animator.GetCurrentAnimatorStateInfo(0).IsName("Spellcast2");
+        isSpellcats3Animation = animator.GetCurrentAnimatorStateInfo(0).IsName("Spellcast3");
+        isSpellcats4Animation = animator.GetCurrentAnimatorStateInfo(0).IsName("Spellcast4");
+        isSpellcats5Animation = animator.GetCurrentAnimatorStateInfo(0).IsName("Spellcast5");
+        isSpellcats6Animation = animator.GetCurrentAnimatorStateInfo(0).IsName("Spellcast6");
     }
 
     private void SetAnimations() {

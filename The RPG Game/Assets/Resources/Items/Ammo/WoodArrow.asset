@@ -16,10 +16,11 @@ MonoBehaviour:
   prefab: {fileID: 8787426490947953066, guid: 4edd0e86510fb91499336fe8b513770e, type: 3}
   _name: Wood Arrow
   stackable: 1
-  amount: 3
+  amount: 1
   description: An Arrow
   icon: {fileID: 21300000, guid: 7a622f8fc03b7f54bbae47f18b85c086, type: 3}
   type: 6
   ammoType: 0
   ammoPrefab: {fileID: 8787426490947953066, guid: 4edd0e86510fb91499336fe8b513770e, type: 3}
   damageAmp: 5
+  effect: {fileID: 0}

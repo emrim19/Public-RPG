@@ -13,6 +13,7 @@ public class Ammo : Item
     public AmmoType ammoType;
     public GameObject ammoPrefab;
     public int damageAmp;
+    public Effect effect;
 
     public override void Use() {
         base.Use();

@@ -195,6 +195,5 @@ public abstract class CharacterStats : MonoBehaviour
         }
     }
 
-    
 
 }

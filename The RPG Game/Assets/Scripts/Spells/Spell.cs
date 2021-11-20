@@ -16,6 +16,7 @@ public class Spell : ScriptableObject
     public float cooldown;
     public int spellAnimationNumber;
     public bool isRanged;
+    public bool isMultipleSpellcast;
     
 
 }

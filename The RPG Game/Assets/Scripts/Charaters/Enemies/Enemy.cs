@@ -60,12 +60,12 @@ public class Enemy : Interactable
                     }
                 }
                 else if (player.playerStats.isRange) {
-                    if (distance <= 10) {
+                    if (distance <= 15) {
                         Interact();
                         hasInteracted = true;
                         player.inCombat = true;
                     }
-                    else if (distance > 10) {
+                    else if (distance > 15) {
                         hasInteracted = false;
                         player.inCombat = false;
                     }

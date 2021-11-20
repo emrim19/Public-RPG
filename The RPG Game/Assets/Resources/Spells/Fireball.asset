@@ -17,7 +17,7 @@ MonoBehaviour:
   effect: {fileID: 11400000, guid: d36071bf4de399f43a68365c6c71f7ee, type: 2}
   _name: Fireball
   description: A Fireball spell
-  damageAmp: 15
+  damageAmp: 18
   manaCost: 20
   cooldown: 0
   spellAnimationNumber: 1

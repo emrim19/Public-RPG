@@ -22,3 +22,4 @@ MonoBehaviour:
   cooldown: 0
   spellAnimationNumber: 6
   isRanged: 1
+  isMultipleSpellcast: 1

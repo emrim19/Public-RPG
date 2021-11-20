@@ -7,12 +7,30 @@ public class PlayerAnimationEvent : MonoBehaviour
     public Player player;
     public Ammo currentAmmo;
     public Spell currentSpell;
+    public Spell tempSpell;
 
 
     public void Update() {
         currentAmmo = EquipmentManager.instance.currentAmmo;
         currentSpell = SpellManager.instance.currentSpell;
+
+        if(currentSpell != null) {
+            if (tempSpell == null) {
+                tempSpell = currentSpell;
+            }
+            if (tempSpell != currentSpell && !player.animator.GetCurrentAnimatorStateInfo(0).IsTag("Spellcast")) {
+                tempSpell = currentSpell;
+            }
+
+        }
+        if(currentSpell == null) {
+            tempSpell = null;
+        }
+         
+
     }
+
+
 
 
     public void MeeleAttack() {
@@ -46,11 +64,13 @@ public class PlayerAnimationEvent : MonoBehaviour
 
     public void Spellcast1() {
         if (player.focus != null && player.focus.GetComponent<Enemy>()) {
-            if(currentSpell != null) {
-                if (currentSpell.manaCost <= player.playerStats.stamina) {
-                    if (SpellManager.instance.currentSpell != null) {
-                        Projectile.SpawnProjectile(currentSpell.prefab);
-                        player.playerStats.LoseStamina(currentSpell.manaCost);
+            if(tempSpell != null) {
+                if (tempSpell == currentSpell) {
+                    if (tempSpell.manaCost <= player.playerStats.stamina) {
+                        if (SpellManager.instance.currentSpell != null) {
+                            Projectile.SpawnProjectile(tempSpell.prefab);
+                            //player.playerStats.LoseStamina(currentSpell.manaCost);
+                        }
                     }
                 }
             }
